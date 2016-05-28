@@ -25,11 +25,22 @@ module.exports = {
     wallet_amount: {
         type: 'integer',
         defaultsTo: 0
+    },
+
+    device_id: {
+        type: 'string',
+        defaultsTo: 0
+    },
+
+    role: {
+        type: 'string',
+        defaultsTo: 'standard',
+        in: ['standard', 'admin'];
     }
   },
 
   loginOrSignUp: function(opts, cb){
-      User.find(opts.email).exec(function(userfindErr, user){
+      User.findOne(opts.email).exec(function(userfindErr, user){
           if(userfindErr){
               cb(userfindErr, null);
           }else if(user){

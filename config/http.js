@@ -8,7 +8,7 @@
  * For more information on configuration, check out:
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.http.html
  */
-
+var expressJwt = require('express-jwt');
 module.exports.http = {
 
   /****************************************************************************
@@ -85,3 +85,20 @@ module.exports.http = {
 
   // cache: 31557600000
 };
+
+module.exports = {
+    http: {
+        customMiddleware: function(app){
+            app.use(expressJwt({secret: 'SierraOscarCharlie'}).unless({path: [
+                '/user/login'
+            ]}));
+
+            app.use(function (err, req, res, next) {
+                if (err.name === 'UnauthorizedError') {
+                    res.send(401, {status: 401, message: err.message});
+                }
+            });
+        }
+    }
+};
+
