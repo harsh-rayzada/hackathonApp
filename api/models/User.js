@@ -35,7 +35,7 @@ module.exports = {
     role: {
         type: 'string',
         defaultsTo: 'standard',
-        in: ['standard', 'admin'];
+        in: ['standard', 'admin']
     }
   },
 
