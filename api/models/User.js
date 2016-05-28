@@ -46,7 +46,7 @@ module.exports = {
   },
 
   loginOrSignUp: function(opts, cb){
-      User.findOne(opts.email).exec(function(userfindErr, user){
+      User.findOne({email: opts.email}).exec(function(userfindErr, user){
           if(userfindErr){
               cb(userfindErr, null);
           }else if(user){
