@@ -11,6 +11,7 @@ module.exports = {
         if(!req.body || !req.body.email || !req.body.password)
             res.badRequest('Email or password missing in request');
         else{
+            console.log(req.body);
             User.loginOrSignUp(req.body, function(err, user){
                 if(err){
                     res.negotiate(err);
