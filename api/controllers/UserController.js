@@ -18,7 +18,7 @@ module.exports = {
                 }
                 else{
                     sails.log.debug('created/found user', user);
-                    var token  = jwt.sign(user, secret, {expiresInMinutes: 60*5*100});
+                    var token  = jwt.sign(user, secret, {expiresIn: 60*5*100});
                     user.token = token;
                     req.user = user;
                     sails.log.debug('user sign up/log in', user);
