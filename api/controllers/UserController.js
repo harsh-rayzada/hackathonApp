@@ -17,10 +17,11 @@ module.exports = {
                     res.negotiate(err);
                 }
                 else{
+                    sails.log.debug('created/found user', user);
                     var token  = jwt.sign(user, secret, {expiresInMinutes: 60*5*100});
                     user.token = token;
                     req.user = user;
-                    sails.log.debug('user sign up/log in');
+                    sails.log.debug('user sign up/log in', user);
                     res.send(user);
                 }
             });

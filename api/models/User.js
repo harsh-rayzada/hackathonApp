@@ -9,6 +9,11 @@ var crypto = require('crypto');
 module.exports = {
 
   attributes: {
+    name: {
+        type: 'string',
+        required: true
+    },
+
     email: {
         type: 'string',
         required: true
@@ -62,7 +67,7 @@ module.exports = {
                           cb(userCreationErr, null);
                       }else{
                           delete createdUser['password'];
-                          cb(createdUser);
+                          cb(null,createdUser);
                       }
                   });
               });
