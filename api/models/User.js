@@ -5,6 +5,7 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
+var crypto = require('crypto');
 module.exports = {
 
   attributes: {
