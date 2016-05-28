@@ -39,6 +39,12 @@ module.exports.routes = {
   'POST /user/login'                : 'UserController.login',
 
 
+  'GET /menu'                       : 'MenuController.showMenu',
+  'POST /menu/update'               : 'MenuController.updateMenuItem',
+  'POST /menu/delete'               : 'MenuController.deleteMenuItem',
+  'DELETE /menu/add'                : 'MenuController.addMenuItem'
+
+
 
   /***************************************************************************
   *                                                                          *

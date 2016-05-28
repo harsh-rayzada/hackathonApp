@@ -31,10 +31,6 @@ module.exports = {
     logout : function(req, res){
         delete req['user'];
         res.send({success: true});
-    },
-
-
-
-
+    }
 };
 
